@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
-import './Reset.css'
+import './Reset.scss'
 export class Login extends Component {
 
     constructor(props) {

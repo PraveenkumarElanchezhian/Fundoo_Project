@@ -68,28 +68,31 @@ export class Signup extends Component {
                             <p className='title-2'>to continue to fundoo</p>
                         </div>
 
-                        <div className='field-row'>
-                            <div className='field-cloumn'>
-                                <TextField name='firstName' id="outlined-basic" label="First name" variant="outlined" error={this.state.firstNameError} helperText={this.state.firstNameError ? "Enter first name" : " "} onChange={(e)=>this.changeHandle(e)}/>
-                                <TextField name='lastName' id="outlined-basic" label="Last name" variant="outlined" error={this.state.lastNameError} helperText={this.state.lastNameError ? "Enter last name" : " "} onChange={(e)=>this.changeHandle(e)}/>
+                            <div className='field-row'>
+                                <div className='field-cloumn'>
+                                    <TextField style={{marginRight:'15px'}} className='Class' name='firstName' id="outlined-basic" label="First name" variant="outlined" error={this.state.firstNameError} helperText={this.state.firstNameError ? "Enter first name" : " "} onChange={(e)=>this.changeHandle(e)}/>
+                                    <TextField  name='lastName' id="outlined-basic" label="Last name" variant="outlined" error={this.state.lastNameError} helperText={this.state.lastNameError ? "Enter last name" : " "} onChange={(e)=>this.changeHandle(e)}/>
+                                </div>
+                            
+                                <div className='field-cloumn-1'>
+                                    <TextField name='userName' id="outlined-basic" label="User name" variant="outlined" fullWidth error={this.state.userNameError} helperText={this.state.userNameError ? "choose a fundoo address" : " "} onChange={(e)=>this.changeHandle(e)}/>
+                                    <p className='paragraph'>You can use letters, numbers & periods</p>
+                                </div> 
+                                <div className='field-cloumn'>
+                                    <TextField style={{marginRight:'15px'}} name='password' id="outlined-basic" label="Password" variant="outlined" error={this.state.passwordError} helperText={this.state.passwordError ? "Enter a password" : " "} onChange={(e)=>this.changeHandle(e)}/>
+                                    <TextField id="outlined-basic" label="Confirm" variant="outlined"/>
+                                </div>
+                                <p className='paragraph'>Use 8 or more characters with a mix of letters, numbers & symbols</p>
                             </div>
                             
-                            <div className='field-cloumn-1'>
-                                <TextField name='userName' id="outlined-basic" label="User name" variant="outlined" fullWidth helperText="You can use letters, numbers & periods" error={this.state.userNameError} helperText={this.state.userNameError ? "choose a fundoo address" : " "} onChange={(e)=>this.changeHandle(e)}/>
-                            </div> 
-                            <div className='field-cloumn'>
-                                <TextField name='password' id="outlined-basic" label="Password" variant="outlined" error={this.state.passwordError} helperText={this.state.passwordError ? "Enter a password" : " "} onChange={(e)=>this.changeHandle(e)}/>
-                                <TextField id="outlined-basic" label="Confirm" variant="outlined"/>
-                                {/* helperText="Use 8 or more characters with a mix of letters, numbers & symbols" */}
-                            </div>
-                            </div>
                             <div className='password'>
                             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
                             <label for="vehicle1">Show password</label> 
                             </div>
 
                             <div className='footer-container'>
-                                <button className='Create-button'>Sign in instead</button>
+                                <button className='Create-button' >Sign in instead</button>
+                                
                                 <button className='next-button' onClick={this.next}>Next</button>
                             </div>
                     </div>   
@@ -97,7 +100,7 @@ export class Signup extends Component {
                     <div className='image-container'>
                         <figure>
                             <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244" class="j9NuTc TrZEUc"></img>
-                            <figcaption className=''>One account. All of Google working for you.</figcaption>
+                            <figcaption>One account. All of Google working for you.</figcaption>
                         </figure>
                     </div>
 

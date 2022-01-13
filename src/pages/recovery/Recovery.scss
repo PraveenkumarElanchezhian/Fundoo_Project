@@ -1,0 +1,122 @@
+@mixin dimension($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin display($display, $flex-direction) {
+    display: $display;
+    flex-direction: $flex-direction;
+}
+
+@mixin alignment($align-items, $justify-content) {
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+@mixin border($border, $border-radius) {
+    border: $border;
+    border-radius: $border-radius;
+}
+
+@mixin color($color, $background-color) {
+    color: $color;
+    background-color: $background-color;
+}
+
+@mixin font($font-size, $font-family, $font-weight) {
+    font-size: $font-size;
+    font-family: $font-family;
+    font-weight: $font-weight;
+}
+
+@mixin margin($margin-top, $margin-bottom, $line-height) {
+    margin-top: $margin-top;
+    margin-bottom: $margin-bottom;
+    line-height: $line-height;
+}
+
+.recovery{
+    @include dimension(100%,100%);
+    @include display(flex,null);
+    @include alignment(center,center);
+    .recovery-container{
+        @include dimension(33%,80%);
+        @include display(flex,column);
+        @include alignment(center,center);
+        @include border(1px solid lightgray,5px);
+        .Header{
+            @include display(flex,row);
+            @include font(null,null,null);
+            @include margin(-100px, -bottom, -height);
+                .color1{@include color(#1a73e8,null);}
+                .color2{@include color(red,null);}
+                .color3{@include color(yellow,null);}
+                .color4{@include color(#1a73e8,null);}
+                .color5{@include color(green,null);}
+                .color6{@include color(red,null);}
+        }
+
+        .title-container{
+            @include dimension(100%,null);
+            @include display(flex,column);
+            @include alignment(center,center);
+                .title_1{
+                    @include dimension(80%,null);
+                    @include alignment(center,center);
+                    @include margin(-5px,null,null);
+                    @include color(#000,null);
+                    @include font(null,null,unset);
+                 }
+                .title_2{
+                    @include dimension(80%,null);
+                    @include alignment(center, center);
+                    @include margin(-10px, 40px, null)
+                }
+        }
+
+        .field_row{
+            @include margin(-10px, 10px, -height);
+            @include dimension(80%,null);
+            .field_cloumn{
+                @include dimension(100%, null);
+                @include display(flex, null);
+                @include alignment(center, center);
+                @include margin(null, 10px, null);  
+            }
+        }
+
+        .footer{
+            @include dimension(80%, null);
+            @include display(flex, null);
+            @include alignment(null, right);
+            @include font(null, null, null);
+            @include margin(10px, null, null);
+            .next{
+                @include color(#fff,#1a73e8);
+                @include font(null, null, 500)
+            }
+        }
+    }
+}
+
+//  @media screen and (max-width:320px) {
+//     .recovery{
+//       font-size: 10px;
+//     }
+//     .recovery-container{
+//         font-size: 10px;
+//     }
+// } 
+
+//  @media screen and (max-width:1024px) {
+//     .recovery{
+//         margin: 0%;
+//         width: 100%;
+//         font-size: 15px;
+//     }
+//     .recovery-container{
+//         width: 40%;
+//         font-size: 15px;
+//     }
+
+// }

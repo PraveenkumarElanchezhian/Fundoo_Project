@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
-import './Recovery.css'
+import './Recovery.scss'
 export class Login extends Component {
 
     constructor(props) {
@@ -63,6 +63,7 @@ export class Login extends Component {
                             <TextField name='EmailorPhone' id="outlined-basic" label="Phone number or email" variant="outlined" error={this.state.EmailorPhoneError} helperText={this.state.EmailorPhoneError ? "Enter a valid email or phone number" : " "} fullWidth onChange={(e)=>this.changeHandle(e)} />
                         </div>
                     </div>
+
                     <div className='footer'>
                         <button className='next' onClick={this.next}>Next</button>
                     </div>

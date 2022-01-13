@@ -1,0 +1,92 @@
+@mixin dimension($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin display($display, $flex-direction) {
+    display: $display;
+    flex-direction: $flex-direction;
+}
+
+@mixin alignment($align-items, $justify-content) {
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+@mixin border($border, $border-radius) {
+    border: $border;
+    border-radius: $border-radius;
+}
+
+@mixin color($color, $background-color) {
+    color: $color;
+    background-color: $background-color;
+}
+
+@mixin font($font-size, $font-family, $font-weight) {
+    font-size: $font-size;
+    font-family: $font-family;
+    font-weight: $font-weight;
+}
+
+@mixin margin($margin-top, $margin-bottom, $line-height) {
+    margin-top: $margin-top;
+    margin-bottom: $margin-bottom;
+    line-height: $line-height;
+}
+
+.reset{
+    @include dimension(100%,100%);
+    @include display(flex, null);
+    @include alignment(center, center);
+    .reset-container{
+        @include dimension(33%, 80%);
+        @include display(flex, column);
+        @include alignment(center, center);
+        @include border(1px solid lightgray, 5px);
+        .Header{
+            @include margin(-100px, null, null);
+            @include display(flex, row);
+            @include font(null, null, null);
+                .color1{@include color(#1a73e8,null);}
+                .color2{@include color(red,null);}
+                .color3{@include color(yellow,null);}
+                .color4{@include color(#1a73e8,null);}
+                .color5{@include color(green,null);}
+                .color6{@include color(red,null);}
+        }
+
+        .title-conten{
+            @include dimension(80%,null);
+                .title-content-1{
+                    @include margin(-5px, null, null);
+                    @include color(#000, null);
+                    @include font(null, null, unset);
+                }
+                .title-content-2{
+                    @include margin(-10px, 40px, null);
+                }
+        }
+
+        .field-row{
+            @include dimension(80%, null);
+            @include margin(-10px, 10px, null);
+                .field-cloumn{
+                    @include dimension(100%, null);
+                    @include margin(null, 20px, null);
+                }
+        }
+
+        .footer{
+            @include dimension(80%, null);
+            @include alignment(null, right);
+            @include font(null, "roboto,'Noto Sans Myanmar UI',arial,sans-serif", null);
+            @include margin(10px, null,null);
+            @include display(flex, null);
+                .next{
+                    @include color(#fff, #1a73e8);
+                    @include font(null, null, 500);
+                }
+        }
+    }  
+}

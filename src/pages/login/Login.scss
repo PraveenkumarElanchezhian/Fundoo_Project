@@ -1,225 +1,148 @@
+@mixin dimension($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin display($display, $flex-direction) {
+    display: $display;
+    flex-direction: $flex-direction;
+}
+
+@mixin alignment($align-items, $justify-content) {
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+@mixin border($border, $border-radius) {
+    border: $border;
+    border-radius: $border-radius;
+}
+
+@mixin color($color, $background-color) {
+    color: $color;
+    background-color: $background-color;
+}
+
+@mixin font($font-size, $font-family, $font-weight) {
+    font-size: $font-size;
+    font-family: $font-family;
+    font-weight: $font-weight;
+}
+
+@mixin margin($margin-top, $margin-bottom, $line-height) {
+    margin-top: $margin-top;
+    margin-bottom: $margin-bottom;
+    line-height: $line-height;
+}
+
 .login-page{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        @include dimension(100%,100%);
+        @include display(flex,null);
+        @include alignment(center,center);
+            .login-page-container{
+                @include dimension(33%,85%);
+                @include display(flex,column);
+                @include alignment(center,center);
+                @include border(1px solid lightgray,5px);
+            .Header-content{
+                @include dimension(80%,null);
+                @include alignment(center,center);
+                @include display(flex,row);
+                @include font(null,null,null);
+                    .color1{@include color(#1a73e8,null);}
+                    .color2{@include color(red,null);}
+                    .color3{@include color(yellow,null);}
+                    .color4{@include color(#1a73e8,null);}
+                    .color5{@include color(green,null);}
+                    .color6{@include color(red,null);}
+        }
 
-.login-page-container{
-    width: 33%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    border: 1px solid lightgray;
-    border-radius: 5px;
-}
+        .title-content{
+            @include dimension(80%,null);
+                .title1{
+                    @include margin(-5px,null,null);
+                    @include color(#000,null);
+                    @include font(null,null,unset);
+                }
+                .title2{
+                    @include margin(-10px,40px,null);
+                }
+        }
 
-.Header-content{
-    width: 80%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
-}
+        .fieldrow{
+            @include margin(-10px,10px,null);
+            @include dimension(80%,null);
+                .fieldcloumn{
+                    @include margin(null,10px,null);
+                }
+                .button-cont{
+                    @include color(#1a73e8,null);
+                    @include font(null,null,500);
+                    @include margin(-2px,null,null);
+                    @include display(flex,null);
+                }
+        }
 
-.color1{
-    color: #1a73e8;
-}
-.color2{
-    color: red;
-}
-.color3{
-    color: yellow;
-}
-.color4{
-    color:  #1a73e8;
-}
-.color5{
-    color: green;
-}
-.color6{
-    color: red;
-}
+        .paragraph{
+            @include dimension(80%,null);
+            @include display(flex,column);
+                .para{
+                    @include color(#5f6368,null);
+                    @include font(14px,null,null);
+                    @include margin(null,0px,1.4286);
+                    @include display(flex,null);
+                }
+                .button-cont{
+                    @include color(#1a73e8,null);
+                    @include font(null,null,500);
+                    @include margin(-2px,null,null);
+                    @include display(flex,null);
+                }
+        }
 
-.title-content{
-    width: 80%;
-}
+        .footer-content{
+            @include dimension(80%,null);
+            @include display(flex,null);
+            @include alignment(center,space-between);
+            @include color(#1a73e8,null);
+            @include font(null,null,null);
 
-.title1{
-    margin-top: -5px;
-    color: #000;
-    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
-    font-weight: unset;
-}
-.title2{
-    margin-top: -10px;
-    margin-bottom: 40px;
-}
+                .Create-accoun{
+                    @include color(#1a73e8,transparent);
+                    @include border(0,null);
+                }
+                .next{
+                    @include color(#fff,#1a73e8);
+                    @include font(null,null,500);
+                }
+        }
 
-.fieldrow{
-    margin-top: -10px;
-    margin-bottom: 10px;
-    width: 80%;
-}
-
-.fieldcloumn{
-    margin-bottom: 10px;
-}
-
-.button-cont{
-    color: #1a73e8;
-    font-weight: 500;
-    margin-top: -2px;
-    display: flex;
-}
-
-.paragraph{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-}
-
-.para{
-    color: #5f6368;
-    font-size: 14px;
-    line-height: 1.4286;
-    margin-bottom: 0px;
-    display: flex;
-}
-
-.footer-content{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #1a73e8;
-    font-family:  roboto,'Noto Sans Myanmar UI',arial,sans-serif;
-    letter-spacing: .0107142857em;
-}
-
-.Create-account{
-    color: #1a73e8;
-    background-color: transparent;
-    border: 0;
-} 
-
-.next{ 
-    color: #fff;
-    background-color: #1a73e8;
-    font-weight: 500;
-}
-
-@media screen and (max-width:320px) {
-    .login-page{
-      font-size: 10px;
     }
-    .Header-content{
-        font-size: 10px;
-    }
-    .login-page-container{
-        font-size: 10px;
-    }
-
 }
 
-@media screen and (max-width:1024px) {
-    .login-page{
-        // margin: 0%;
-        // width: 100%;
-        font-size: 15px;
-    }
-    .login-page-container{
-        // width: 50%;
-        font-size: 15px;
-    }
 
-}
-
-// @mixin property($width, $height, $display, $flex-direction, $align-items, $justify-content, $border, $border-radius, $font-size, $font-family, $font-weight, $margin-top, $margin-bottom, $line-height, $color, $background-color) {
-//     width: $width;
-//     height: $height;
-//     display: $display;
-//     flex-direction: $flex-direction;
-//     align-items: $align-items;
-//     justify-content: $justify-content;
-//     border: $border;
-//     border-radius: $border-radius;
-//     font-size: $font-size;
-//     font-family: $font-family;
-//     font-weight: $font-weight;
-//     margin-top: $margin-top;
-//     margin-bottom: $margin-bottom;
-//     line-height: $line-height;
-//     color: $color;
-//     background-color: $background-color;
+// @media screen and (max-width:320px) {
+//     .login-page{
+//       font-size: 10px;
+//     }
+//     .Header-content{
+//         font-size: 10px;
+//     }
+//     .login-page-container{
+//         font-size: 10px;
+//     }
 
 // }
 
-// .login {
-//      @include property(100%, 100%, flex, null, center, center, null, null, null, null, null, null, null, null, null, null);
-//     .login-container {
-//         @include property(33%, 80%, flex, column, center, center, 1px solid lightgray, 5px, null, null, null, null, null, null, null, null);
-//         .Header{
-//             @include property(null, null, flex, row, null, null, null, null, null, "'Google Sans','Noto Sans Myanmar UI',arial,sans-serif", null, null, null, null, null, null);
-//             .color1{
-//                 @include property(null, null, null, null, null, null, null, null, null, null, null, null, null, null, #1a73e8, null);
-//             }
-//             .color2{
-//                 @include property(null, null, null, null, null, null, null, null, null, null, null, null, null, null, red, null);
-//             }
-//             .color3{
-//                 @include property(null, null, null, null, null, null, null, null, null, null, null, null, null, null, yellow, null);
-//             }
-//             .color4{
-//                 @include property(null, null, null, null, null, null, null, null, null, null, null, null, null, null, #1a73e8, null);
-//             .color5{
-//                 @include property(null, null, null, null, null, null, null, null, null, null, null, null, null, null, green, null);
-//             }
-//             .color6{
-//                 @include property(null, null, null, null, null, null, null, null, null, null, null, null, null, null, red, null);
-//             }
-            
-//         }
-//         .title-1{
-//             @include property(null, null, null, null, null, null, null, null, null, " 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif ", unset , -5px, null, null, #000, null);
-//         }
-
-//         .title-2{
-//             @include property(null, null, null, null, null, null, null, null, null, null, null, -10px, 40px, null , null, null);
-//         }
-
-//         .field-row{
-//             @include property(80%, null, null, null, null, null, null, null, null, null, null, -10px, 10px, null, null, null);
-//             .field-cloumn{
-//                 @include property(null, null, null, null, null, null, null, null, null, null, null, null, 10px, null, null, null);
-//                 .button{
-//                     @include property(null, null, null, null, null, null, 0, null, null, null, 500, null, null, null, #1a73e8, transparent);
-//                 }
-//             }
-//         }
-
-//         .paragraph{
-//             @include property(80%, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-//             .para{
-//                 @include property(null, null, null, null, null, null, null, null, 14px, null, null, null, null, 1.4286,  #5f6368, null);
-//             }
-//             .button{
-//                 @include property(null, null, null, null, null, null, 0, null, null, null, 500, null, null, null, #1a73e8, transparent);
-//             }
-//         }
-//         .footer{
-//             @include property(80%, null, flex, null, center, space-between, null, null, null, "roboto,'Noto Sans Myanmar UI',arial,sans-serif", null, 20px, null, null, #1a73e8, null);
-//             .Create-account{
-//                 @include property(null, null, null, null, null, null, 0, null, null, null, null, null, null, null, #1a73e8, transparent);
-//             }
-//             .next{
-//                 @include property(null, null, null, null, null, null, null, null, null, null, 500, null, null, null, #fff, #1a73e8);
-//             }
-//         }
+// @media screen and (max-width:1024px) {
+//     .login-page{
+//         // margin: 0%;
+//         // width: 100%;
+//         font-size: 15px;
 //     }
-//   }
+//     .login-page-container{
+//         // width: 50%;
+//         font-size: 15px;
+//     }
+
 // }
