@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import './Login.scss'
+import { Router } from 'react-router-dom';
 
 export class Login extends Component {
 
@@ -26,6 +27,8 @@ export class Login extends Component {
         var validated = this.validated();
         if(validated){
             console.log("success");
+            // Router.push("/Create account");
+            // <Link to="/Create account">Create account</Link>
         }
     }
 

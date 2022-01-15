@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
-import './Signup.scss'
+import './Signup.scss';
+import { Link } from 'react-router-dom';
+
 export class Signup extends Component {
 
     constructor(props) {
@@ -70,7 +72,7 @@ export class Signup extends Component {
 
                             <div className='field-row'>
                                 <div className='field-cloumn'>
-                                    <TextField style={{marginRight:'15px'}} className='Class' name='firstName' id="outlined-basic" label="First name" variant="outlined" error={this.state.firstNameError} helperText={this.state.firstNameError ? "Enter first name" : " "} onChange={(e)=>this.changeHandle(e)}/>
+                                    <TextField style={{marginRight:'15px'}} name='firstName' id="outlined-basic" label="First name" variant="outlined" error={this.state.firstNameError} helperText={this.state.firstNameError ? "Enter first name" : " "} onChange={(e)=>this.changeHandle(e)}/>
                                     <TextField  name='lastName' id="outlined-basic" label="Last name" variant="outlined" error={this.state.lastNameError} helperText={this.state.lastNameError ? "Enter last name" : " "} onChange={(e)=>this.changeHandle(e)}/>
                                 </div>
                             
@@ -91,7 +93,7 @@ export class Signup extends Component {
                             </div>
 
                             <div className='footer-container'>
-                                <button className='Create-button' >Sign in instead</button>
+                                <Link className='Create-button' to="/Login">Sign in instead</Link>
                                 
                                 <button className='next-button' onClick={this.next}>Next</button>
                             </div>
