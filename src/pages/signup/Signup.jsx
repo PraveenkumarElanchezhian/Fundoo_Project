@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import './Signup.scss';
 import { Link } from 'react-router-dom';
+import UserService from '../../service/UserService';
+
+const service = new UserService();
 
 export class Signup extends Component {
 
@@ -9,7 +12,7 @@ export class Signup extends Component {
         super(props)
     
         this.state = {
-             firstName:'',
+            firstName:'',
              lastName:'',
              userName:'',
              password:'',
@@ -27,10 +30,27 @@ export class Signup extends Component {
         })
     }
 
-    next =() =>{
+    next=()=>{
         var validated = this.validated();
-        if(validated){
+        if(!validated){
             // console.log("success");
+            let request = {
+                "firstName": this.state.firstName,
+                "lastName": this.state.lastName,
+                "email": this.state.userName,
+                "password": this.state.password,
+                "service": "advance",
+              }
+
+              service.Registration(request)
+              .then(res=>{
+                  console.log(res);
+              })
+              .catch(err=>{
+                  console.log(err);
+              })
+
+
         }
     }
 
