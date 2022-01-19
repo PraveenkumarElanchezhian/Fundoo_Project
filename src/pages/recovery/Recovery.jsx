@@ -32,7 +32,7 @@ export class Login extends Component {
                 "email": this.state.email,
               }
 
-              service.Reset(data)
+              service.Recovery(data)
               .then(res=>{
                   console.log(res);
               })
@@ -81,7 +81,8 @@ export class Login extends Component {
                     </div>
 
                     <div className='footer'>
-                        <button className='next' onClick={this.next}>Next</button>
+                        <button className='next' onClick={(event) => this.next(event)}>Next</button>
+                        {/* <Link className='Create-account' to="/userSignUp">Create account</Link> */}
                     </div>
 
                 </div>

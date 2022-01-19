@@ -32,6 +32,7 @@ import { alpha } from '@mui/material/styles';
 
 
 import TakenNotes from '../../component/TakenNotes/TakenNotes';
+import DisplayNotes from '../../component/DisplayNotes/DisplayNotes';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -181,30 +182,34 @@ export default function MiniDrawer() {
       <CssBaseline />
       <AppBar position="fixed" open={open} >
         <Toolbar className='header'>
+          
           <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen}  edge="start"> <MenuIcon /> </IconButton>
+         
+          <Toolbar> <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="logo" /> </Toolbar>
+          
           <Typography variant="h6" noWrap component="div">
 
             <div className='header-section'>
 
               <div className='header-Content-1'>
-                <Toolbar> <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="logo" /> </Toolbar>
+                
                 <div>Keep</div>
               </div>  
 
               <div className='header-Content-2'>
-                <Search>
+                <Search style={{width:'100%', background:'transparent', marginLeft:'30%'}}>
                   <SearchIconWrapper> <SearchIcon /> </SearchIconWrapper>
                   <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }}/>
                 </Search>
               </div>
 
-              {/* <Box sx={{ flexGrow: 1 }} /> */}
-              <div className='header-Content-3'> 
-                <IconButton color="inherit"> <RefreshOutlinedIcon /> </IconButton>
-                <IconButton color="inherit"> <ViewAgendaOutlinedIcon /> </IconButton>
-                <IconButton color="inherit"> <SettingsOutlinedIcon /> </IconButton>
-                <IconButton color="inherit"> <AppsOutlinedIcon /> </IconButton>
-                <IconButton color="inherit"> <PermIdentityOutlinedIcon /> </IconButton>
+              <Box sx={{ flexGrow: 1 }} />
+              <div className='header-Content-3' > 
+                <IconButton color="inherit" className='header-icons' style={{marginLeft:'30px'}}> <RefreshOutlinedIcon /> </IconButton>
+                <IconButton color="inherit" className='header-icons' style={{marginLeft:'30px'}}> <ViewAgendaOutlinedIcon /> </IconButton>
+                <IconButton color="inherit" className='header-icons' style={{marginLeft:'30px'}}> <SettingsOutlinedIcon /> </IconButton>
+                <IconButton color="inherit" className='header-icons' style={{marginLeft:'30px'}}> <AppsOutlinedIcon /> </IconButton>
+                <IconButton color="inherit" className='header-icons' style={{marginLeft:'30px'}}> <PermIdentityOutlinedIcon /> </IconButton>
               </div>
 
             </div>
@@ -232,6 +237,7 @@ export default function MiniDrawer() {
         <Typography paragraph >
 
           <TakenNotes/>
+          <DisplayNotes/>
 
         </Typography>
       </Box>

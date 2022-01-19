@@ -32,7 +32,7 @@ export class Login extends Component {
             console.log("success");
 
             let data ={
-                "email": this.state.userName,
+                "email": this.state.email,
                 "password": this.state.password,
             }
             service.Login(data)
@@ -100,7 +100,7 @@ export class Login extends Component {
                     <div className='footer-content'>
                     <Link className='Create-account' to="/userSignUp">Create account</Link>
                         {/* <p className='Create-account'>Create account</p> */}
-                        <button className='next' onClick={this.next}>Next</button>
+                        <button className='next' onClick={(event) => this.next(event)}>Next</button>
                     </div>
 
                 </div>
