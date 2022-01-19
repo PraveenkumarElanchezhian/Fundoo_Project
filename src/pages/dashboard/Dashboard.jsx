@@ -24,12 +24,16 @@ import ViewAgendaOutlinedIcon from '@mui/icons-material/ViewAgendaOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
-import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
-import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';
-import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
+
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { alpha } from '@mui/material/styles';
+
+
+
+import TakenNotes from '../../component/TakenNotes/TakenNotes';
+
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -106,6 +110,7 @@ const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
+  
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -222,27 +227,12 @@ export default function MiniDrawer() {
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }} className='body'>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
         <DrawerHeader />
-        <Typography paragraph className='body'>
+        <Typography paragraph >
 
-          <div className='body-content'>
-            <div className='first-container'>
+          <TakenNotes/>
 
-              <div className='content-1'>
-                  Take a note...
-                {/* <input type="text" placeholder="Take a note..."></input> */}
-                </div>
-              <div className='content-2'> 
-                <icons className='button'> <CheckBoxOutlinedIcon /> </icons>
-                <icons className='button'> <BrushOutlinedIcon /> </icons> 
-                <icons className='button'> <ImageOutlinedIcon /> </icons> 
-              </div>
-            </div>
-            <div className='second-container'>
-
-            </div>
-          </div>
         </Typography>
       </Box>
     </Box>
