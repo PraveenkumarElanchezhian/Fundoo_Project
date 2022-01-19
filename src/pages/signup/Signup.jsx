@@ -34,7 +34,7 @@ export class Signup extends Component {
         var validated = this.validated();
         if(!validated){
             // console.log("success");
-            let request = {
+            let data = {
                 "firstName": this.state.firstName,
                 "lastName": this.state.lastName,
                 "email": this.state.userName,
@@ -42,7 +42,7 @@ export class Signup extends Component {
                 "service": "advance",
               }
 
-              service.Registration(request)
+              service.Registration(data)
               .then(res=>{
                   console.log(res);
               })
@@ -113,8 +113,7 @@ export class Signup extends Component {
                             </div>
 
                             <div className='footer-container'>
-                                <Link className='Create-button' to="/Login">Sign in instead</Link>
-                                
+                                <Link className='Create-button' to="/login">Sign in instead</Link>
                                 <button className='next-button' onClick={this.next}>Next</button>
                             </div>
                     </div>   

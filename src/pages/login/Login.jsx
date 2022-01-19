@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import './Login.scss'
 import { Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import UserService from '../../service/UserService';
+const service = new UserService();
 
 export class Login extends Component {
 
@@ -9,9 +12,9 @@ export class Login extends Component {
         super(props)
     
         this.state = {
-             EmailorPhone:'',
+             email:'',
              password:'',
-             EmailorPhoneError:false,
+             emailError:false,
              passwordError:false
         }
     }
@@ -25,24 +28,35 @@ export class Login extends Component {
 
     next =() =>{
         var validated = this.validated();
-        if(validated){
+        if(!validated){
             console.log("success");
-            // Router.push("/Create account");
-            // <Link to="/Create account">Create account</Link>
+
+            let data ={
+                "email": this.state.userName,
+                "password": this.state.password,
+            }
+            service.Login(data)
+              .then(res=>{
+                  console.log(res);
+              })
+              .catch(err=>{
+                  console.log(err);
+              })
+
         }
     }
 
     validated =() =>{
         let isError =  false;
         const error = this.state;
-        error.EmailorPhoneError = this.state.EmailorPhone === ''? true : false;
+        error.emailError = this.state.email === ''? true : false;
         error.passwordError = this.state.password === ''? true : false;
 
         this.setState({
             ...error
         })
 
-        return isError = error.EmailorPhoneError || error.passwordError;
+        return isError = error.emailError || error.passwordError;
     }
 
     render() {
@@ -68,13 +82,13 @@ export class Login extends Component {
 
                     <div className='fieldrow'>
                         <div className='fieldcloumn'>
-                            <TextField name='EmailorPhone' id="outlined-basic" label="Email or phone" variant="outlined" error={this.state.EmailorPhoneError} helperText={this.state.EmailorPhoneError ? "Enter an email or phone number" : " "} fullWidth onChange={(e)=>this.changeHandle(e)}/>
-                            <p className='button-cont'>Forgot email?</p>
+                            <TextField name='email' id="outlined-basic" label="Email or phone" variant="outlined" error={this.state.emailError} helperText={this.state.emailError ? "Enter an email or phone number" : " "} fullWidth onChange={(e)=>this.changeHandle(e)}/>
+                            <Link className='button-cont' to="/reset">Forgot email?</Link>
                         </div>
 
                         <div className='fieldcloumn'>
                             <TextField name='password' id="outlined-basic" label="Password" variant="outlined" error={this.state.passwordError} helperText={this.state.passwordError ? "Enter an password" : " "} fullWidth onChange={(e)=>this.changeHandle(e)}/>
-                            <p className='button-cont'>Forgot password?</p>
+                            <Link className='button-cont' to="/reset-password">Forgot password?</Link>
                         </div>
                     </div>
 
@@ -84,7 +98,8 @@ export class Login extends Component {
                     </div>
 
                     <div className='footer-content'>
-                        <p className='Create-account'>Create account</p>
+                    <Link className='Create-account' to="/userSignUp">Create account</Link>
+                        {/* <p className='Create-account'>Create account</p> */}
                         <button className='next' onClick={this.next}>Next</button>
                     </div>
 

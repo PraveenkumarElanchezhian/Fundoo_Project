@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import './Recovery.scss'
+import { Link } from 'react-router-dom';
+import UserService from '../../service/UserService';
+
+const service = new UserService();
+
 export class Login extends Component {
 
     constructor(props) {
         super(props)
     
         this.state = {
-             EmailorPhone:'',
-             EmailorPhoneError:false,
+             email:'',
+             emailError:false,
         }
     }
     
@@ -21,21 +26,32 @@ export class Login extends Component {
 
     next =() =>{
         var validated = this.validated();
-        if(validated){
+        if(!validated){
             console.log("success");
+            let data = {
+                "email": this.state.email,
+              }
+
+              service.Reset(data)
+              .then(res=>{
+                  console.log(res);
+              })
+              .catch(err=>{
+                  console.log(err);
+              })
         }
     }
 
     validated =() =>{
         let isError =  false;
         const error = this.state;
-        error.EmailorPhoneError = this.state.EmailorPhone === ''? true : false;
+        error.emailError = this.state.email === ''? true : false;
 
         this.setState({
             ...error
         })
 
-        return isError = error.EmailorPhoneError ;
+        return isError = error.emailError ;
     }
 
     render() {
@@ -60,7 +76,7 @@ export class Login extends Component {
 
                     <div className='field_row'>
                         <div className='field_cloumn'>
-                            <TextField name='EmailorPhone' id="outlined-basic" label="Phone number or email" variant="outlined" error={this.state.EmailorPhoneError} helperText={this.state.EmailorPhoneError ? "Enter a valid email or phone number" : " "} fullWidth onChange={(e)=>this.changeHandle(e)} />
+                            <TextField name='email' id="outlined-basic" label="Phone number or email" variant="outlined" error={this.state.emailError} helperText={this.state.emailError ? "Enter a valid email or phone number" : " "} fullWidth onChange={(e)=>this.changeHandle(e)} />
                         </div>
                     </div>
 

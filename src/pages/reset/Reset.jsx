@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import './Reset.scss'
+import { Link } from 'react-router-dom';
+import UserService from '../../service/UserService';
+
+const service = new UserService();
+
 export class Login extends Component {
 
     constructor(props) {
@@ -23,8 +28,20 @@ export class Login extends Component {
 
     next =() =>{
         var validated = this.validated();
-        if(validated){
+        if(!validated){
             console.log("success");
+            let data = {
+                "reset": this.state.reset,
+                "confirm": this.state.confirm,
+              }
+
+              service.Recovery(data)
+              .then(res=>{
+                  console.log(res);
+              })
+              .catch(err=>{
+                  console.log(err);
+              })
         }
     }
 

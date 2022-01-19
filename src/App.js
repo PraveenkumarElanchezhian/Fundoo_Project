@@ -5,6 +5,9 @@ import Signup from './pages/signup/Signup';
 import Recovery from './pages/recovery/Recovery';
 import Reset from './pages/reset/Reset';
 
+import Dashboard from './pages/dashboard/Dashboard';
+
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,20 +21,14 @@ function App() {
     <div className="App">
     <Router>
        <Switch>
-         <Route path="/Signup" component={Signup} />
-         <Route path="/Login" component={Login} />
-         <Route path="/Recovery" component={Recovery} />
-         <Route path="/Reset" component={Reset} />
+         <Route path="/userSignUp" component={Signup} />
+         <Route path="/login" component={Login} />
+         <Route path="/reset" component={Recovery} />
+         <Route path="/reset-password" component={Reset} />
+         <Route path="/Dashboard" component={Dashboard} />
        </Switch>
      </Router>
    </div>
-
-    // <div className="App">
-    //   {/* <Login/>  */}
-    //   {/* <Signup/>  */}
-    //   {/* <Recovery/> */}
-    //   {/* <Reset/> */}
-    // </div>
   );
 }
 

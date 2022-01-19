@@ -117,7 +117,7 @@
                 @include display(flex, row);
                 @include alignment(center, space-between);
                 @include color(#1a73e8, null);
-                @include font(null , "roboto,'Noto Sans Myanmar UI',arial,sans-serif", null);
+                @include font(null , null, null);
                 @include margin(30px , null, null, null);
 
                     .Create-button{

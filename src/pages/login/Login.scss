@@ -84,7 +84,7 @@
         }
 
         .paragraph{
-            @include dimension(80%,null);
+            @include dimension(100%,null);
             @include display(flex,column);
                 .para{
                     @include color(#5f6368,null);
@@ -107,7 +107,7 @@
             @include color(#1a73e8,null);
             @include font(null,null,null);
 
-                .Create-accoun{
+                .Create-account{
                     @include color(#1a73e8,transparent);
                     @include border(0,null);
                 }
