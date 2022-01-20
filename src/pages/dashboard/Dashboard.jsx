@@ -24,15 +24,10 @@ import ViewAgendaOutlinedIcon from '@mui/icons-material/ViewAgendaOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
-
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { alpha } from '@mui/material/styles';
-
-
-
-import TakenNotes from '../../component/TakenNotes/TakenNotes';
-import DisplayNotes from '../../component/DisplayNotes/DisplayNotes';
+import Notes from '../Notes/Notes';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -235,10 +230,7 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
         <DrawerHeader />
         <Typography paragraph >
-
-          <TakenNotes/>
-          <DisplayNotes/>
-
+            <Notes/>
         </Typography>
       </Box>
     </Box>

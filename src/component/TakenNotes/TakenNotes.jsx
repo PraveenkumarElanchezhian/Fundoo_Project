@@ -9,25 +9,50 @@ import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import IconButton from '@mui/material/IconButton';
 import './TakenNotes.scss';
+import NotesService from '../../service/NotesService';
+const notesservice = new NotesService();
 
 export class TakenNotes extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            open: true
+            openNote: true,
+            title:'',
+            description:'',
         }
     }
 
-    handleOpen = () => {
+    changeHandle=(e)=>{
         this.setState({
-            open: false
+            [e.target.name]: e.target.value
         })
     }
 
-    handleClose = () => {
+    handleOpen=()=>{
         this.setState({
-            open: true
+            openNote: false
+        })
+    }
+
+    handleClose=()=>{
+
+        this.setState({
+            openNote: true
+        })
+
+        let data ={
+            "title": this.state.title,
+            "description": this.state.description,
+        }
+    
+        notesservice.addNote(data)
+        .then(res=>{
+           console.log(res);
+        //  localStorage.setItem('token',res.data.id)
+        }) 
+        .catch(err=>{
+            console.log(err);
         })
     }
 
@@ -35,7 +60,7 @@ export class TakenNotes extends Component {
         return (
             <div className='body'>
                 {
-                    this.state.open ?
+                    this.state.openNote ?
                         <div className='note-container'>
                             <input type="text" name="" id="" placeholder='Take a notes...' onClick={this.handleOpen} />
                             <div className='icons'>
@@ -47,8 +72,8 @@ export class TakenNotes extends Component {
                         </div>
                         :
                         <div className='take-container'>
-                            <input type="text" name="" id="" placeholder='Title' />
-                            <input type="text" name="" id="" placeholder='Take a notes...' />
+                            <input type="text" name="title" id="" placeholder='Title' onChange={(e)=>this.changeHandle(e)}/>
+                            <input type="text" name="description" id="" placeholder='Take a notes...' onChange={(e)=>this.changeHandle(e)}/>
                             <div className='icons'>
                                 <div className='icon-list'>
                                 <IconButton color="inherit"> <AddAlertOutlinedIcon /> </IconButton>

@@ -4,7 +4,6 @@ import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import Recovery from './pages/recovery/Recovery';
 import Reset from './pages/reset/Reset';
-
 import Dashboard from './pages/dashboard/Dashboard';
 
 
@@ -24,7 +23,7 @@ function App() {
          <Route path="/userSignUp" component={Signup} />
          <Route path="/login" component={Login} />
          <Route path="/reset" component={Recovery} />
-         <Route path="/reset-password" component={Reset} />
+         <Route path="/resetpassword" component={Reset} />
          <Route path="/Dashboard" component={Dashboard} />
        </Switch>
      </Router>

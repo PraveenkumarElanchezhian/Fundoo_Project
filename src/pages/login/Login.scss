@@ -84,7 +84,7 @@
         }
 
         .paragraph{
-            @include dimension(100%,null);
+            @include dimension(80%,null);
             @include display(flex,column);
                 .para{
                     @include color(#5f6368,null);

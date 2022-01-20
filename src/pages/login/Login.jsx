@@ -38,6 +38,7 @@ export class Login extends Component {
             service.Login(data)
               .then(res=>{
                   console.log(res);
+                  localStorage.setItem('token',res.data.id)
               })
               .catch(err=>{
                   console.log(err);

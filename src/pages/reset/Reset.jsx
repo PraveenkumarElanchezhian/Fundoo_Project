@@ -4,7 +4,7 @@ import './Reset.scss'
 import { Link } from 'react-router-dom';
 import UserService from '../../service/UserService';
 
-const service = new UserService();
+const userservice = new UserService();
 
 export class Login extends Component {
 
@@ -19,33 +19,39 @@ export class Login extends Component {
         }
     }
     
-    changeHandle =(e) =>{
+    changeHandle=(e)=>{
         console.log(e);
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    next =() =>{
+    next=()=>{
         var validated = this.validated();
         if(!validated){
             console.log("success");
+
+          if(this.state.reset === this.state.confirm)
+          {
             let data = {
-                "reset": this.state.reset,
-                "confirm": this.state.confirm,
+                // "reset": this.state.reset,
+                "newPassword": this.state.confirm,
               }
 
-              service.Recovery(data)
-              .then(res=>{
+              userservice.Reset(data)
+              .then((res)=>{
                   console.log(res);
+                //   localStorage.setItem('token',res.data.id)
               })
-              .catch(err=>{
+              .catch((err)=>{
                   console.log(err);
               })
+          }
+            
         }
     }
 
-    validated =() =>{
+    validated=()=>{
         let isError =  false;
         const error = this.state;
         error.resetError = this.state.reset === ''? true : false;

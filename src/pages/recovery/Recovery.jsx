@@ -82,7 +82,8 @@ export class Login extends Component {
 
                     <div className='footer'>
                         <button className='next' onClick={(event) => this.next(event)}>Next</button>
-                        {/* <Link className='Create-account' to="/userSignUp">Create account</Link> */}
+                        {/* <Link className='next' to="/reset-password" 
+                        onClick={(event) => this.next(event)}>Next</Link> */}
                     </div>
 
                 </div>
