@@ -15,9 +15,10 @@ export class Notes extends Component {
   }
 
   componentDidMount(){
+    this.getNotes();
+  }
 
-
-    
+  getNotes =()=>{
     noteservice.getsNote()
     .then((res)=>{
       this.setState({
@@ -32,8 +33,10 @@ export class Notes extends Component {
   
   render() {
     return( 
-    <div>
-        <TakenNotes/>
+    <div> 
+
+
+        <TakenNotes getnotes= {this.getNotes}/>
         <DisplayNotes AddingValues={this.state.AddingNotes}/>
     </div>
     )

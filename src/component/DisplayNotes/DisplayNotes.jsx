@@ -16,6 +16,8 @@ export class DisplayNotes extends Component {
         //  data: props
       }
     }
+ 
+      
     
     render() {
         console.log(this.props.AddingValues)
@@ -23,7 +25,7 @@ export class DisplayNotes extends Component {
             // <div>
             // { this.props.AddingValues.map((item,index)=>{
             //     console.log(item);
-            // <div className='display-body'>
+            // <div className='display-body' onclick={opnndialo(item)}>
             //     <div className='display-container'>
 
             //         <input type="text" name="" id="" placeholder='Title' />
@@ -54,7 +56,7 @@ export class DisplayNotes extends Component {
                     </div>
                     {/* <input type="text" name="" id="" placeholder='Title' />
                     <input type="text" name="" id="" placeholder='Take a notes...' /> */}
-                    {/* <div className='icons'>
+                    <div className='icons'>
                         <div className='icon-list'>
                             <IconButton color="inherit"> <AddAlertOutlinedIcon /> </IconButton>
                             <IconButton color="inherit"> <PersonAddAlt1OutlinedIcon /> </IconButton>
@@ -63,7 +65,7 @@ export class DisplayNotes extends Component {
                             <IconButton color="inherit"> <ArchiveOutlinedIcon /> </IconButton>
                             <IconButton color="inherit"> <MoreVertOutlinedIcon /> </IconButton>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 ))}
             </div>

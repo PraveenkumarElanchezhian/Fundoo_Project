@@ -10,6 +10,7 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import IconButton from '@mui/material/IconButton';
 import './TakenNotes.scss';
 import NotesService from '../../service/NotesService';
+import DisplayNotes from '../DisplayNotes/DisplayNotes';
 const notesservice = new NotesService();
 
 export class TakenNotes extends Component {
@@ -36,11 +37,6 @@ export class TakenNotes extends Component {
     }
 
     handleClose=()=>{
-
-        this.setState({
-            openNote: true
-        })
-
         let data ={
             "title": this.state.title,
             "description": this.state.description,
@@ -49,8 +45,11 @@ export class TakenNotes extends Component {
         notesservice.addNote(data)
         .then(res=>{
            console.log(res);
-        //  localStorage.setItem('token',res.data.id)
-        }) 
+           this.props.getnotes();
+           this.setState({
+            openNote: true
+            })
+       }) 
         .catch(err=>{
             console.log(err);
         })

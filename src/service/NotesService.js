@@ -11,11 +11,9 @@ let headerConfig={
 
 class NotesService {
     addNote(data){
-        // console.log(data);
         return service.postMethod(`${baseUrl}/notes/addNotes`,data,headerConfig);
     }
     getsNote(){
-        console.log(headerConfig.headers);
         return service.getsMethod(`${baseUrl}/notes/getNotesList?access_token=`+headerConfig.headers.Authorization);
     }
     // getNote(){
