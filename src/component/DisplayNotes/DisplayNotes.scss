@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: 20px;
     .display-container{
         box-shadow: -1px -1px 5px rgb(153, 150, 150),1px 1px 10px rgb(153, 150, 150);
@@ -11,19 +11,26 @@
         border-radius: 5px;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         height: 150px;
         width: 20%;
         padding: 10px;
-            input{
-                outline: none;
-                border:none;
-                // width: 100%;
-                height: 50px;
-            }
+        margin-right: 20px;
+        margin-bottom: 20px;
+
+        .content-display{
+            display: flex;
+        }
+            // input{
+            //     outline: none;
+            //     border:none;
+            //     // width: 100%;
+            //     height: 50px;
+            // }
             .icons{
                 display: flex;
                 // width: 100%;
-                justify-content: space-between;
+                justify-content: space-around;
             .icon-list{
                 // width: 100%;
                 display: flex;

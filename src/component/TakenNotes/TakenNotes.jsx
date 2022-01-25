@@ -32,7 +32,7 @@ export class TakenNotes extends Component {
 
     handleOpen=()=>{
         this.setState({
-            openNote: false
+            openNote: false,
         })
     }
 
@@ -47,7 +47,7 @@ export class TakenNotes extends Component {
            console.log(res);
            this.props.getnotes();
            this.setState({
-            openNote: true
+            openNote: true,
             })
        }) 
         .catch(err=>{
@@ -69,7 +69,7 @@ export class TakenNotes extends Component {
                             </div>
 
                         </div>
-                        :
+                    :
                         <div className='take-container'>
                             <input type="text" name="title" id="" placeholder='Title' onChange={(e)=>this.changeHandle(e)}/>
                             <input type="text" name="description" id="" placeholder='Take a notes...' onChange={(e)=>this.changeHandle(e)}/>

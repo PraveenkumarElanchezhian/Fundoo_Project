@@ -34,8 +34,6 @@ export class Notes extends Component {
   render() {
     return( 
     <div> 
-
-
         <TakenNotes getnotes= {this.getNotes}/>
         <DisplayNotes AddingValues={this.state.AddingNotes}/>
     </div>
