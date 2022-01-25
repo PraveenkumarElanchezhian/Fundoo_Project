@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import '../Icons/Icons.scss'
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
+import '../Icons/Icons.scss'
 
 //poper
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Popover } from '@material-ui/core';
+import Colors from '../color/Color';
 
 export class Icons extends Component {
 
@@ -19,25 +18,52 @@ export class Icons extends Component {
         super(props);
 
         this.state = {
-            // popover
-            anchorEl: null
-            // setAnchorEl:null
+            anchorEl: false,
+            color: false
         }
     }
 
     //popover
     handleClick = event => this.setState({ anchorEl: event.currentTarget })
-    handleClose = () => this.setState({ anchorEl: null })
+    handleClose = () => this.setState({ anchorEl: false })
+
+    colorOpen = (e) => {
+        this.setState({
+            color: e.currentTarget
+        })
+    }
+
+    colorClose = () => {
+        this.setState({
+            color: false
+        })
+    }
 
     render() {
         //popover
-        const { anchorEl } = this.state
+        const { anchorEl, color } = this.state
 
         return (
             <div className='iconss'>
                 <AddAlertOutlinedIcon />
                 <PersonAddAltOutlinedIcon />
-                <ColorLensOutlinedIcon />
+                <div>
+                    <ColorLensOutlinedIcon onClick={(e) => this.colorOpen(e)} />
+                    <Popover
+                        id="simple-menu"
+                        anchorEl={color}
+                        keepMounted
+                        open={Boolean(color)}
+                        onClose={this.colorClose}
+                        anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "left"
+                        }}
+                    >
+                        <Colors />
+                    </Popover>
+                </div>
+
                 <PhotoOutlinedIcon />
                 <ArchiveOutlinedIcon />
                 <div>
