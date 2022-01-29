@@ -11,16 +11,20 @@ import IconButton from '@mui/material/IconButton';
 import './TakenNotes.scss';
 import NotesService from '../../service/NotesService';
 import DisplayNotes from '../DisplayNotes/DisplayNotes';
+import Icons from '../Icons/Icons';
+
 const notesservice = new NotesService();
 
 export class TakenNotes extends Component {
     constructor(props) {
-        super(props)
+        super(props)  
 
         this.state = {
             openNote: true,
             title:'',
             description:'',
+            color:'',
+            isArchived:false,
         }
     }
 
@@ -36,15 +40,29 @@ export class TakenNotes extends Component {
         })
     }
 
+
+    changeColor=(val)=>{
+        this.setState({
+            color:val,
+        })
+    }
+
+    changeArchive=(val)=>{
+        this.setState({
+            isArchived:val,
+        })
+    }
+
     handleClose=()=>{
         let data ={
             "title": this.state.title,
             "description": this.state.description,
+            "color":this.state.color,
+            "isArchived":this.state.isArchived
         }
     
         notesservice.addNote(data)
         .then(res=>{
-           console.log(res);
            this.props.getnotes();
            this.setState({
             openNote: true,
@@ -70,18 +88,22 @@ export class TakenNotes extends Component {
 
                         </div>
                     :
-                        <div className='take-container'>
+                        <div className='take-container' style={{ backgroundColor: this.state.color }}>
                             <input type="text" name="title" id="" placeholder='Title' onChange={(e)=>this.changeHandle(e)}/>
                             <input type="text" name="description" id="" placeholder='Take a notes...' onChange={(e)=>this.changeHandle(e)}/>
                             <div className='icons'>
-                                <div className='icon-list'>
+
+                                <Icons mode="create" changeColor={this.changeColor} changeArchive={this.changeArchive}/>
+                                
+                                {/* <div className='icon-list'>
                                 <IconButton color="inherit"> <AddAlertOutlinedIcon /> </IconButton>
                                 <IconButton color="inherit"> <PersonAddAlt1OutlinedIcon /> </IconButton>
-                                <IconButton color="inherit"> <ColorLensOutlinedIcon /> </IconButton>
+                                <IconButton color="inherit" onClick={{}}> <ColorLensOutlinedIcon /> </IconButton>
                                 <IconButton color="inherit"> <ImageOutlinedIcon /> </IconButton>
                                 <IconButton color="inherit"> <ArchiveOutlinedIcon /> </IconButton>
-                                <IconButton color="inherit"> <MoreVertOutlinedIcon /> </IconButton>
-                                </div>
+                                <IconButton color="inherit" onClick={{}}> <MoreVertOutlinedIcon /> </IconButton>
+                                </div> */}
+
                                 <div className='button-content'>
                                     <button onClick={this.handleClose} className='button'>Close</button>
                                 </div>

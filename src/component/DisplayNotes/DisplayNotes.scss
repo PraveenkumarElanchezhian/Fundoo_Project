@@ -21,20 +21,14 @@
         .content-display{
             display: flex;
         }
-            // input{
-            //     outline: none;
-            //     border:none;
-            //     // width: 100%;
-            //     height: 50px;
-            // }
-            .icons{
-                display: flex;
-                // width: 100%;
-                justify-content: space-around;
-            .icon-list{
-                // width: 100%;
+            .iconsStyle{
                 display: flex;
                 justify-content: space-around;
+                width: 100%;
+            .icon-lists{
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
             }
             .button-content{
                 display: flex;

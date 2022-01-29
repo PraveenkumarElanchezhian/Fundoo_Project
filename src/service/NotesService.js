@@ -20,6 +20,10 @@ class NotesService {
     //     // console.log(headerConfig.headers);
     //     return service.getMethod(`${baseUrl}/notes/getNotesList`,{},headerConfig);
     // }
+
+    changeColor(data){
+        return service.postMethod(`${baseUrl}notes/changesColorNotes`,data,headerConfig)
+      }
 }
 
 export default NotesService;

@@ -95,21 +95,21 @@ export class DisplayNotes extends Component {
         return (
             <div className='display-body'>
                 {this.props.AddingValues.map((item, index) => (
-                    <div className='display-container' onClick={() => this.handleOpenTitle(item)}>
+                    <div className='display-container' onClick={() => this.handleOpenTitle(item)} style={{ backgroundColor: item.color }}>
                         <div className='content-display'>
                             {item.title}
                         </div>
                         <div className='content-display'>
                             {item.description}
                         </div>
-                        <div className='icons'>
-                            <div className='icon-list'>
+                        <div className='iconsStyle'>
+                            <div className='icon-lists'>
                                 <IconButton color="inherit" > <AddAlertOutlinedIcon /> </IconButton>
                                 <IconButton color="inherit"> <PersonAddAlt1OutlinedIcon /> </IconButton>
-                                <IconButton color="inherit" onClick={{}}> <ColorLensOutlinedIcon /> </IconButton>
+                                <IconButton color="inherit"> <ColorLensOutlinedIcon /> </IconButton>
                                 <IconButton color="inherit"> <ImageOutlinedIcon /> </IconButton>
                                 <IconButton color="inherit"> <ArchiveOutlinedIcon /> </IconButton>
-                                <IconButton color="inherit" onClick={{}}> <MoreVertOutlinedIcon /> </IconButton>
+                                <IconButton color="inherit"> <MoreVertOutlinedIcon /> </IconButton>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ export class DisplayNotes extends Component {
                             </div>
                         </DialogContent>
                         <DialogContent className="close-Icon" >
-                            <Icons />
+                            <Icons mode="update"/>
                             <button autoFocus onClick={(title, description) => this.handleClose(title, description)}> Close</button>
                         </DialogContent>
                     </div>

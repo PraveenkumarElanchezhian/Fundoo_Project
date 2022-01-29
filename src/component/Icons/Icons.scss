@@ -1,6 +1,61 @@
-.iconss{
-    width: 100%;
+// .icons-style{
+//     width: 80%;
+//     display: flex;
+//     align-items: center;
+//     // justify-content: space-evenly;
+//     .icons-1{
+//         display: flex;
+//         width: 70%;
+//         justify-content: space-evenly;
+//         align-items: center;
+//         .icons-2{
+//             display: flex;
+//             align-items: center;
+//             .colorPallets{
+//                 width: 35px;
+//                 height: 35px;
+//                 border-radius: 20px;
+//                 display:inline-flex;
+                
+//             }
+//         }
+//     }
+    
+//     .icons-3{
+//         display: flex;
+//         align-items: center;
+//     }
+// }
+
+
+.icons-style{
+    width: 80%;
     display: flex;
-    justify-content: space-between;
- 
+    align-items: center;
+    // justify-content: space-evenly;
+
 }
+    .icons-1{
+        display: flex;
+        width: 70%;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+        .icons-2{
+            display: flex;
+            align-items: center;
+        }
+            .colorPallets{
+                width: 35px;
+                height: 35px;
+                border-radius: 20px;
+                display:inline-flex;
+                
+            }
+        
+    
+    
+    .icons-3{
+        display: flex;
+        align-items: center;
+    }
