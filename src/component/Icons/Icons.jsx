@@ -26,7 +26,6 @@ export class Icons extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             anchorEl: false,
             color: false
@@ -43,37 +42,76 @@ export class Icons extends Component {
         })
     }
 
-    color = (storeclr) => {
-        console.log(this.props);
-        if (this.props.mode === "create") {
-            this.props.changeColor(storeclr);
-        }
-
-        else {
-
-            // updatecolor
-            let data = {
-                "noteIdList": [this.props.noteId],
-                "color": storeclr
-            }
-            notesService.changeColor(data)
-                .then(res => {
-                    console.log(res)
-
-                })
-                .catch(err => {
-                    console.log("color err" + err)
-                })
-        }
-
-    }
-
     colorClose = () => {
         this.setState({
             color: false
         })
     }
 
+    color = (clr) => {
+        if (this.props.mode === "create") {
+            this.props.changeColor(clr);
+        }
+        else {
+            let data = {
+                "noteIdList": [this.props.noteId],
+                "color": clr
+            }
+            notesService.changeColor(data)
+                .then(res => {
+                    this.props.changeColor(clr);
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+
+    }
+
+    // updateArchive = () => {
+    //     if (this.props.mode === "create") {
+    //         this.props.updateArchive();
+    //     }
+    //     else{
+    //         this.props.updateArchive();
+    //     }
+    // }
+
+    checkArchive = () => {
+
+        if(this.mode === "create"){
+        }
+        else{
+            let data ={
+                "noteIdList":[this.props.noteId],
+                "isArchived": true
+            }
+            notesService.updateArchive(data)
+            .then(res =>{
+                console.log(res)
+                this.props.getnotes()   
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+        }
+  }
+
+  deletenote=()=>{
+    let data ={
+        "noteIdList":[this.props.noteId],
+        "isDeleted": true
+    }
+    notesService.deleteNote(data)
+    .then(res =>{
+        console.log(res)
+        this.props.getnotes()   
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+  }
 
     render() {
         //popover
@@ -100,18 +138,17 @@ export class Icons extends Component {
 
                             {
                                 colorsArray.map((item, index) => (
-                                    <div className="colorPallets" onClick={() => this.color(item)}
+                                     <div className="colorPallets" onClick={() => this.color(item)}
                                         style={{ backgroundColor: item }}>
                                         {item.backgroundColor}
                                     </div>
                                 ))
                             }
-                            {/* <Colors /> */}
                         </Popover>
                     </div>
 
                     <PhotoOutlinedIcon />
-                    <ArchiveOutlinedIcon />
+                    <ArchiveOutlinedIcon onClick={(e) => this.checkArchive(e)}/>
 
                     <div className='icons-3'>
                         <MoreVertOutlinedIcon onClick={this.handleClick} />
@@ -126,7 +163,7 @@ export class Icons extends Component {
                                 horizontal: "left"
                             }}
                         >
-                            <MenuItem onClick={this.handleClose}>Delete note</MenuItem>
+                            <MenuItem onClick={this.deletenote}>Delete note</MenuItem>
                             <MenuItem onClick={this.handleClose}>Add label</MenuItem>
                             <MenuItem onClick={this.handleClose}>Add drawing</MenuItem>
                             <MenuItem onClick={this.handleClose}>Make a copy</MenuItem>

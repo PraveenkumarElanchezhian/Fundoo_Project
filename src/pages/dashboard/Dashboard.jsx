@@ -28,7 +28,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { alpha } from '@mui/material/styles';
 import Notes from '../Notes/Notes';
-
+import Archive from '../Archive/Archive';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -230,7 +236,12 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
         <DrawerHeader />
         <Typography paragraph >
+          <switch>
+          <Route path="/addNotes" component={Notes} /> 
+          <Route path="/getArchiveNotesList" component={Archive} />
             <Notes/>
+            {/* <Archive/> */}
+          </switch>
         </Typography>
       </Box>
     </Box>

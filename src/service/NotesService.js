@@ -22,8 +22,23 @@ class NotesService {
     // }
 
     changeColor(data){
-        return service.postMethod(`${baseUrl}notes/changesColorNotes`,data,headerConfig)
+        return service.postMethod(`${baseUrl}/notes/changesColorNotes`,data,headerConfig)
       }
+
+    updateNotes(data){
+        return service.postMethod(`${baseUrl}/notes/updateNotes`,data,headerConfig)
+    }
+    ArchiveNotes(data){
+        return service.getMethod(`${baseUrl}/notes/getArchiveNotesList`,data,headerConfig)
+    }  
+
+    updateArchive(data){
+        return service.postMethod(`${baseUrl}/notes/archiveNotes`,data,headerConfig)
+      }
+
+    deleteNote(data){
+        return service.postMethod(`${baseUrl}/notes/trashNotes`,data,headerConfig)
+    }
 }
 
 export default NotesService;

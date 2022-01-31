@@ -23,7 +23,7 @@ export class TakenNotes extends Component {
             openNote: true,
             title:'',
             description:'',
-            color:'',
+            color:'#fff',
             isArchived:false,
         }
     }
@@ -47,9 +47,9 @@ export class TakenNotes extends Component {
         })
     }
 
-    changeArchive=(val)=>{
+    changeArchive=()=>{
         this.setState({
-            isArchived:val,
+            isArchived:true,
         })
     }
 

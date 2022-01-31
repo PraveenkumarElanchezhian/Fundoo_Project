@@ -22,7 +22,7 @@ export class Notes extends Component {
     noteservice.getsNote()
     .then((res)=>{
       this.setState({
-        AddingNotes:res.data.data.data,
+        AddingNotes:res.data.data.data.filter(data=>data.isArchived !==true && data.isDeleted !==true),
       })
       console.log(this.state.AddingNotes);
     })
@@ -35,7 +35,7 @@ export class Notes extends Component {
     return( 
     <div> 
         <TakenNotes getnotes= {this.getNotes}/>
-        <DisplayNotes AddingValues={this.state.AddingNotes}/>
+        <DisplayNotes AddingValues={this.state.AddingNotes} getnotes= {this.getNotes}/>
     </div>
     )
   }
