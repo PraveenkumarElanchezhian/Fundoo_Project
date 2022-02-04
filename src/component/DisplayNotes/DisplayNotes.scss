@@ -36,3 +36,57 @@
         }
     }
 }
+
+@media screen and (max-width : 600px) {
+    .display-body{
+        background-color: #fff;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        .display-container{
+            width: 200px;
+            .content-display{
+
+                .iconsStyle{
+            
+                    .icon-lists{
+
+                        .button-content{
+
+                        }
+                    }
+                }
+            }
+            
+        }
+       
+    }  
+}
+
+
+
+@media screen and (max-width : 900px) {
+    .display-body{
+        background-color: #fff;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        .display-container{
+            width: 200px;
+            .content-display{
+
+                .iconsStyle{
+            
+                    .icon-lists{
+
+                        .button-content{
+
+                        }
+                    }
+                }
+            }
+            
+        }
+       
+    }  
+}

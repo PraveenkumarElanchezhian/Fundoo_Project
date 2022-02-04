@@ -16,9 +16,9 @@ class NotesService {
     getsNote(){
         return service.getsMethod(`${baseUrl}/notes/getNotesList?access_token=`+headerConfig.headers.Authorization);
     }
-    // getNote(){
+    // getsNote(){
     //     // console.log(headerConfig.headers);
-    //     return service.getMethod(`${baseUrl}/notes/getNotesList`,{},headerConfig);
+    //     return service.getsMethod(`${baseUrl}/notes/getNotesList`,{},headerConfig);
     // }
 
     changeColor(data){
