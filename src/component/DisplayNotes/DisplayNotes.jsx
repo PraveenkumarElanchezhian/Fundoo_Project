@@ -84,6 +84,7 @@ export class DisplayNotes extends Component {
             color:item.color
         })
         console.log(item.color);
+        
     }
 
     handleClose = () => {
@@ -95,6 +96,7 @@ export class DisplayNotes extends Component {
         console.log(data);
         notesservice.updateNotes(data)
             .then(res => {
+                console.log(this.props.AddingValues);
                 console.log('success');
                 this.props.getnotes();
                 this.setState({
@@ -117,6 +119,7 @@ export class DisplayNotes extends Component {
             color: val,
             noteId: this.state.noteId
         })
+
     }
 
     updateArchive = (val) => {
@@ -128,7 +131,7 @@ export class DisplayNotes extends Component {
 
     deletenote=(val)=>{
         this.setState({
-            checkArchive: val,
+            deletenote: val,
             open:false
         })
     }
@@ -148,7 +151,7 @@ export class DisplayNotes extends Component {
                                 {item.description}
                             </div>
                         </div>
-                        <Icons mode="update" noteId={item.id} changeColor={this.changeColor} updateArchive={this.updateArchive} deletenote={this.deleteNote}/>
+                        <Icons mode="update" noteId={item.id} changeColor={this.changeColor} updateArchive={this.updateArchive} deletenote={this.deleteNote} getNotes={ this.props.getnotes}/>
 
                         {/* <div className='iconsStyle'>
                             <div className='icon-lists'>

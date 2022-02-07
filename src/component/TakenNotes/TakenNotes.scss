@@ -3,27 +3,27 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    .note-container{
-    box-shadow: -1px -1px 5px rgb(153, 150, 150),1px 1px 10px rgb(153, 150, 150);
-    color: rgba(0, 0, 0, 0.54);
-    border-radius: 5px;
-    display: flex;
-    height: 60px;
-    width: 60%;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    input{
-        width: 80%;
-        outline: none;
-        border:none;
-    }
-    .icons{
-        width: 20%;
+        .note-container{
+        box-shadow: -1px -1px 5px rgb(153, 150, 150),1px 1px 10px rgb(153, 150, 150);
+        color: rgba(0, 0, 0, 0.54);
+        border-radius: 5px;
         display: flex;
-        justify-content: space-around;
+        height: 60px;
+        width: 60%;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+            input{
+                width: 80%;
+                outline: none;
+                border:none;
+            }
+            .icons{
+                width: 20%;
+                display: flex;
+                justify-content: space-around;
+            }
     }
-}
 
     .take-container{
         box-shadow: -1px -1px 5px rgb(153, 150, 150),1px 1px 10px rgb(153, 150, 150);
@@ -35,98 +35,45 @@
         width: 60%;
         padding: 10px;
         // background-color: inherit;
-        input{
-            background-color: inherit;
-            outline: none;
-            border:none;
-            width: 100%;
-            height: 50px;
-        }
+            input{
+                background-color: inherit;
+                outline: none;
+                border:none;
+                width: 100%;
+                height: 50px;
+            }
         .icons{
             display: flex;
             width: 100%;
             justify-content: space-between;
-           .icon-list{
-               width: 60%;
-               display: flex;
-               justify-content: space-around;
-           }
-           .button-content{
-               display: flex;
-           }
-           .button{
-               border: none;
-               background-color: transparent;
-           }
+            .icon-list{
+                width: 60%;
+                display: flex;
+                justify-content: space-around;
+            }
+            .button-content{
+                display: flex;
+            }
+            .button{
+                border: none;
+                background-color: transparent;
+            }
         }
     }
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .body{
-//     color: rgba(0, 0, 0, 0.54);
-// }
-
-// .body-content{
-//     width: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-  
-// }
-
-// .first-container{
-//     width: 50%;
-//     align-items: center;
-//     justify-content: center;
-//     border: 1px solid lightgray;
-//     border-radius: 5px;
-//     display: flex;
-// }
-
-// .content-1{
-//     width: 25%;
-//     align-items: center;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: flex-start;
-// }
-
-// .content-2{
-//     width: 25%;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: flex-end;
-//     align-items: center;
-// }
-// .button{
-//     border: 0;
-//     background-color: transparent;
-// }
-
-// .second-container{
-//     width: 25%;
-//     align-items: center;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-start;
-// }
+@media screen and (max-width : 600px) {
+    .body{
+        width: 100%;
+        .note-container{
+            background-color: #fff;
+            input{
+                width: 80%;
+            }
+            .icons{
+                width: 20%;
+            }
+        }
+    }
+}

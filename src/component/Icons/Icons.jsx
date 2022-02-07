@@ -60,7 +60,7 @@ export class Icons extends Component {
             notesService.changeColor(data)
                 .then(res => {
                     this.props.changeColor(clr);
-                    console.log(res)
+                    this.props.getNotes()
                 })
                 .catch(err => {
                     console.log(err)
@@ -68,15 +68,6 @@ export class Icons extends Component {
         }
 
     }
-
-    // updateArchive = () => {
-    //     if (this.props.mode === "create") {
-    //         this.props.updateArchive();
-    //     }
-    //     else{
-    //         this.props.updateArchive();
-    //     }
-    // }
 
     checkArchive = () => {
 
@@ -90,7 +81,7 @@ export class Icons extends Component {
             notesService.updateArchive(data)
             .then(res =>{
                 console.log(res)
-                this.props.getnotes()   
+                this.props.getNotes()
             })
             .catch(err =>{
                 console.log(err)
@@ -106,7 +97,7 @@ export class Icons extends Component {
     notesService.deleteNote(data)
     .then(res =>{
         console.log(res)
-        this.props.getnotes()   
+        this.props.getNotes() 
     })
     .catch(err =>{
         console.log(err)
